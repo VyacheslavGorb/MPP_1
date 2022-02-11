@@ -5,7 +5,7 @@ USE todo_list_db;
 CREATE TABLE IF NOT EXISTS users(
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
     login VARCHAR(60) UNIQUE,
-    password CHAR(255)
+    password BINARY(60)
 );
 
 CREATE TABLE IF NOT EXISTS tasks(
