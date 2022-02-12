@@ -41,9 +41,7 @@ def signup(is_form_valid):
 @guest_only
 def login(is_form_valid):
     if not is_form_valid or not is_valid_credentials(request.form["login"], request.form["password"]):
-        session["login_error"] = True
         redirect(url_for("auth.login"))
-    session["logged_in"] = True
     token = generate_jwt({
         "login": request.form["login"]
     })

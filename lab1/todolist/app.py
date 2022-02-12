@@ -14,7 +14,6 @@ app.app_context().push()
 
 @app.before_first_request
 def init_session():
-    session["logged_in"] = False
     session["sign_up_error"] = False
 
 
