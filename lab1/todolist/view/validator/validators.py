@@ -10,9 +10,9 @@ class LoginFormValidator(Form):
 
 
 class SingUpFormValidator(Form):
-    login = StringField(validators=[validators.Regexp(LOGIN_REGEXP), validators.InputRequired()])
-    password = PasswordField(validators=[
+    login = StringField('login', validators=[validators.Regexp(LOGIN_REGEXP), validators.InputRequired()])
+    password = PasswordField('password', validators=[
         validators.InputRequired(),
         validators.EqualTo('confirm')
     ])
-    confirm = PasswordField(validators=[validators.Regexp(PASSWORD_REGEXP), validators.InputRequired()])
+    confirm = PasswordField('confirm', validators=[validators.Regexp(PASSWORD_REGEXP), validators.InputRequired()])

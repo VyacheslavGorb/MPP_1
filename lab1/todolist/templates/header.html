@@ -1,11 +1,12 @@
 <nav class="navbar navbar-light bg-light header">
-    <a href="#" class="navbar-brand ms-4">Todo List</a>
+    <a href="/index" class="navbar-brand ms-4">Todo List</a>
     <div class="">
         {% if session["logged_in"] %}
-            <a href="#" class="btn btn-outline-secondary me-2">Log out</a>
+            <a href="#" class="btn btn-outline-success me-2">My Tasks</a>
+            <a href="/auth/logout" class="btn btn-outline-secondary me-2">Log out</a>
         {% else %}
-            <a href="#" class="btn btn-outline-secondary me-2">Sign Up</a>
-            <a href="#" class="btn btn-outline-success me-2">Log In</a>
+            <a href="/auth/signup" class="btn btn-outline-secondary me-2">Sign Up</a>
+            <a href="/auth/login" class="btn btn-outline-success me-2">Log In</a>
         {% endif %}
     </div>
 </nav>

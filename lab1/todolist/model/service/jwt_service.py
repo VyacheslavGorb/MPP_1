@@ -1,6 +1,3 @@
-from asyncio.log import logger
-from functools import wraps
-from flask import request
 import jwt
 from jwt import DecodeError, ExpiredSignatureError
 
@@ -20,16 +17,7 @@ def validate_jwt(token: str) -> bool:
     is_valid = True
     try:
         jwt.decode(token, secret, algorithms=algorihm)
-    except (DecodeError, ExpiredSignatureError) as e:
+    except (DecodeError, ExpiredSignatureError):
         is_valid = False
 
     return is_valid
-
-
-def auth_required(f):  # TODO
-    @wraps(f)
-    def wrapper(*args, **kwargs):
-        logger.error("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-        return f(*args, **kwargs)
-
-    return wrapper
